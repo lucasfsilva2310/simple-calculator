@@ -1,0 +1,104 @@
+    h1 {
+        text-align: center;
+        color: rgba(245, 245, 245, 0.836);
+        font-size: 3rem;
+    }
+/* selecionar todos os elementos com '*'
+    e customização de fonte e tamanho das
+    'caixas' */
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: normal;
+    }
+
+    /* customização do distanciamento nas margens(margin),
+        preenchimento dos itens(padding), e coloração
+        do background(neste caso, mudança linear e gradiente
+        de cores, da esquerda pra direita */
+    body {
+        padding: 0;
+        margin: 0;
+        background: linear-gradient(to right,#57b3e9, #cebebe);
+    }
+
+    /* inicio da customização dos botoes, usando a 
+        class='calculator-grid, localizado na div principal 
+        selecionando o modo de display
+        da calculadora, centralizando e alinhando os itens pro
+        centro,ajustando uma distancia minima da viewport,
+        ajustando o tamanho das fileiras, em px, e tambem das 
+        colunas,justo com o distanciamento.também se alinha
+        o conteudo de toda a classe, se usar o align-content*/
+    .calculator-grid {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        min-height: 100vh;
+        grid-template-columns: repeat(4,100px);
+        grid-template-rows: minmax(120px, auto)repeat(5,100px);
+    }
+
+    /* com esse comando, se seleciona todas as tags 'button'
+    dentro da classe 'calculator-grid',customizando o ponteiro
+    do mouse, para indicar que os botões executam uma ação,
+    o tamano da fonte dos caracteres dos botoes, a borda,
+    sua outline, e tambem o background deles(os numeros
+    em parentesis alteram a opacidade dos botoes */
+    .calculator-grid > button {
+        cursor: pointer;
+        font-size: 2rem;
+        border: 1px solid rgb(27, 27, 27);
+        outline: none;
+        background-color: honeydew ;
+    }
+
+    /* Aqui está sendo customizado a mudança que é feita
+    quando o cursor é passado por cima dos botões, e o efeito
+    de quando o botao é clicado */
+    .calculator-grid > button:hover {
+        background-color: turquoise;
+    }
+
+    /* Aqui foi ajustado o tamanho dos botôes que tem a classe
+    span-two */
+    .span-two {
+        grid-column: span 2
+    }
+
+    /* Com esse 'truque' de grid column 1/-1,nós mostramos para
+    o CSS que o item que tem a classe .output vai do primeiro item
+    ao ultimo item dessa coluna, ou seja, preenchendo ela inteira.
+    aqui tambem vai ser customizado o background do display.
+    a fonte também é ajustada para ser concatenada, e os itens
+    sao concatenados para a parte de baixo dessa div.
+    as opções words tambem auxiliam caso o número fique muito
+    grande, assim 'quebrando' ele nas proximas linhas, sem limi
+    taçoes */
+    .output {
+        grid-column: 1 / -1;
+        background-color: rgba(0, 0, 0, 0.774);
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+        flex-direction: column;
+        padding: 10px;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+    /* ajuste da fonte dos números da classe.previous-operand
+     */
+    .output .previous-operand {
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 1.5rem;
+    }
+
+
+    /* ajuste da fonte dos números da classe.current-operand
+     */
+    .output .current-operand {
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 2.5rem;
+    }
